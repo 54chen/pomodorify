@@ -10,11 +10,11 @@
 4. 改成强提示，原来的提示不太给力
 
 # 咋用？
-
+```
  git clone git@github.com:54chen/pomodorify.git
  cd pomodorify
  sh pomodify.sh 完成100行代码
-
+```
 
 # pomodorify
 You can use this script to run a simple pomodoro timer that plays music from Spotify while you work from the command line on Mac. 
