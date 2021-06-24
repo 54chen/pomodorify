@@ -10,10 +10,22 @@
 4. 改成强提示，原来的提示不太给力
 
 # 咋用？
+先fork到你自己的github账号下，再按如下操作：
+
 ```
- git clone git@github.com:54chen/pomodorify.git
+ git clone git@github.com:{your ID}/pomodorify.git
  cd pomodorify
  sh pomodify.sh 完成100行代码
+```
+
+然后你的gihub首页会得到满满一屏的时间线，在这个库中可以看到所有的timeslot (全部记录在git log里了).
+
+```
+commit 93c1b9106cb364e39ea0c387c0261cd7834b9190 (HEAD -> master, origin/master, origin/HEAD)
+Author: 54chen <czhttp@gmail.com>
+Date:   Thu Jun 24 13:22:34 2021 +0800
+
+    Congrats! 13:22 - 13:22 Done! hello
 ```
 
 # pomodorify
