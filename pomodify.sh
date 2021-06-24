@@ -46,17 +46,19 @@ do
 	else 
 		#Start Work
 		#osascript -e 'display notification "Get to work..." with title "Work Time"'
+		begin=date "+%H:%M"
 		osascript -e 'tell app "System Events" to display dialog   "Get to work..." with title "Work Time"'		
 		say 'Ready.....Go!'
 		#./spotify play uri $DEFAULT_URI;
 		countdown $POMO_WORK;
-
+		
+		end=date "+%H:%M"
 		#Start Break
 		#osascript -e 'display notification "Time for short break, cya in 5!" with title "Short Break"'
 		osascript -e 'tell app "System Events" to display dialog   "Time for short break, cya in 5!" with title "Short Break"'	
 		say 'have a rest, guy!'
 		echo ' ' >> README.md
-		git commit -am 'Congrats! Done->'+ date + $TEXT
+		git commit -am "Congrats! ${begin} - ${end} Done! $TEXT"
 		git push origin master
 		#./spotify pause
 		# call_logger
