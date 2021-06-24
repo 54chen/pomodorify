@@ -1,3 +1,21 @@
+# 中文介绍--54chen
+番茄工作法是简单易行的时间管理方法。
+使用番茄工作法，选择一个待完成的任务，将番茄时间设为25分钟，专注工作，中途不允许做任何与该任务无关的事，直到番茄时钟响起，然后进行短暂休息一下（5分钟就行），然后再开始下一个番茄。每4个番茄时段多休息一会儿。
+番茄工作法极大地提高了工作的效率，还会有意想不到的成就感。
+
+# 相比原版的改动
+1. 去掉spotify，声破天在大陆是没办法注册的，vpn都不太行得通
+2. 添加工作内容
+3. 完事后自动提交github
+4. 改成强提示，原来的提示不太给力
+
+# 咋用？
+
+ git clone git@github.com:54chen/pomodorify.git
+ cd pomodorify
+ sh pomodify.sh 完成100行代码
+
+
 # pomodorify
 You can use this script to run a simple pomodoro timer that plays music from Spotify while you work from the command line on Mac. 
 

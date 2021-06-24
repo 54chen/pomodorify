@@ -8,17 +8,6 @@ POMO_LN_BREAK=15*60
 N_POMOS=4 
 DEFAULT_EDITOR="mvim"
 
-# Setting shuffle on
-function shuffleOn() {
-	isShuffle=`osascript -e 'tell application "Spotify" to shuffling'`;
-	if $isShuffle; 
-		then
-		echo "shuffle is on";
-	else
-		osascript -e 'tell application "Spotify" to set shuffling to not shuffling'; 
-	fi
-}
-
 function countdown() {
 	now=$(date +%s)
 	end=$((now + $1))
@@ -39,24 +28,23 @@ function call_logger() {
 }
 
 COUNT=0
-shuffleOn
 while :
 do 
 	if [ $COUNT -eq 4 ]; then
 		osascript -e 'display notification "Time for long break, cya in 15!" with title "Long Break"'
-		./spotify pause
+		#./spotify pause
 		call_logger
 		countdown $POMO_LN_BREAK
 		COUNT=0
 	else 
 		#Start Work
 		osascript -e 'display notification "Get to work..." with title "Work Time"'
-		./spotify play uri $DEFAULT_URI;
+		#./spotify play uri $DEFAULT_URI;
 		countdown $POMO_WORK;
 
 		#Start Break
 		osascript -e 'display notification "Time for short break, cya in 5!" with title "Short Break"'
-		./spotify pause
+		#./spotify pause
 		call_logger
 		countdown $POMO_SH_BREAK
 		((COUNT++));
