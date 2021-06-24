@@ -7,6 +7,10 @@ POMO_SH_BREAK=5*60
 POMO_LN_BREAK=15*60
 N_POMOS=4 
 DEFAULT_EDITOR="mvim"
+TEXT=$1
+afplay /System/Library/Sounds/Funk.aiff
+osascript -e 'tell app "System Events" to display dialog  "How are you!" with title "Hi,bro."'
+
 
 function countdown() {
 	now=$(date +%s)
@@ -31,21 +35,31 @@ COUNT=0
 while :
 do 
 	if [ $COUNT -eq 4 ]; then
-		osascript -e 'display notification "Time for long break, cya in 15!" with title "Long Break"'
+		#osascript -e 'display notification "Time for long break, cya in 15!" with title "Long Break"'
+		osascript -e 'tell app "System Events" to display dialog  "Time for long break, cya in 15!" with title "Long Break"'
+		
 		#./spotify pause
-		call_logger
+		#call_logger
+		say 'time for long break!'
 		countdown $POMO_LN_BREAK
 		COUNT=0
 	else 
 		#Start Work
-		osascript -e 'display notification "Get to work..." with title "Work Time"'
+		#osascript -e 'display notification "Get to work..." with title "Work Time"'
+		osascript -e 'tell app "System Events" to display dialog   "Get to work..." with title "Work Time"'		
+		say 'Ready.....Go!'
 		#./spotify play uri $DEFAULT_URI;
 		countdown $POMO_WORK;
 
 		#Start Break
-		osascript -e 'display notification "Time for short break, cya in 5!" with title "Short Break"'
+		#osascript -e 'display notification "Time for short break, cya in 5!" with title "Short Break"'
+		osascript -e 'tell app "System Events" to display dialog   "Time for short break, cya in 5!" with title "Short Break"'	
+		say 'have a rest, guy!'
+		echo ' ' >> README.md
+		git commit -am 'Congrats! Done->'+ date + $TEXT
+		git push origin master
 		#./spotify pause
-		call_logger
+		# call_logger
 		countdown $POMO_SH_BREAK
 		((COUNT++));
 	fi
